@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    background-color: #777;
+}
+
+.info {
+    height: 60px;
+    text-align: center;
+    color: white;
+    font-size: 35px;
+    padding-top: 10px;
+}
+
+.container {
+    margin: auto;
+    max-width: fit-content;
+    border: 5px solid black;
+    display: grid;
+    grid-template-columns: repeat(15, 30px);
+    grid-template-rows: repeat(20, 30px);
+}
