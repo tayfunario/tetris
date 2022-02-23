@@ -11,6 +11,9 @@ const leftLimit = [1, 16, 31, 46, 61, 76, 91, 106, 121, 136, 151, 166, 181, 196,
 
 const rightLimit = [15, 30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180, 195, 210, 225, 240, 255, 270, 285, 300]
 const bottomLimit = [286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 300]
+let bottomLimit2 = bottomLimit.map((elem) => elem - 15)
+bottomLimit2.push(...bottomLimit)
+
 const topLimit = [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
 let landedBlocks = []
 let mainInterval
@@ -59,6 +62,10 @@ document.addEventListener('keyup', function(e) {
                 block.location = block.location.map((elem) => elem + 1)
             }
             break
+        case 'ArrowDown':
+            if (!block.location.some((elem) => bottomLimit2.includes(elem))) {
+                fall()
+            }
     }
 
     // bloğu son anda hareket ettirince hata oluşmasını engelliyor
@@ -298,6 +305,10 @@ function rotateControl2() {
                 }
             }
     }
+}
+
+function fall() {
+    block.location = block.location.map((elem) => elem + 15)
 }
 
 // calling functions
